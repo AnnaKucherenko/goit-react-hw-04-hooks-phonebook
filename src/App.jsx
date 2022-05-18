@@ -6,7 +6,9 @@ import { nanoid } from 'nanoid';
 
   
 export default function  App () {
-  const [contacts, setContacts] = useState(JSON.parse(localStorage.getItem('contacts'))??[]);
+  const [contacts, setContacts] = useState(()=>{
+    return JSON.parse(localStorage.getItem('contacts'))??[];
+  });
   const [filter, setFilter] = useState('');
 
   const addContact = (name, number) => {
